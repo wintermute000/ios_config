@@ -1,0 +1,94 @@
+ansible@unl01:~/ios_config$ ansible -m debug -a "var=hostvars['wan1.cisco.com']" localhost -i ./hosts
+localhost | SUCCESS => {
+    "hostvars['wan1.cisco.com']": {
+        "ansible_check_mode": false, 
+        "ansible_version": {
+            "full": "2.1.1.0", 
+            "major": 2, 
+            "minor": 1, 
+            "revision": 1, 
+            "string": "2.1.1.0"
+        }, 
+        "auth_pass": "cisco", 
+        "authorize": "yes", 
+        "backup": "true", 
+        "bgp_as": 65000, 
+        "bgp_neighbors": [
+            {
+                "peer_as": 65000, 
+                "peer_ip": "10.1.254.254"
+            }, 
+            {
+                "peer_as": 65530, 
+                "peer_ip": "172.31.1.1"
+            }
+        ], 
+        "bgp_networks": [
+            {
+                "mask": "255.255.255.255", 
+                "network": "1.1.1.1"
+            }, 
+            {
+                "mask": "255.255.255.0", 
+                "network": "10.1.1.0"
+            }
+        ], 
+        "bgp_rid": "1.1.1.1", 
+        "group_names": [
+            "routers"
+        ], 
+        "groups": {
+            "all": [
+                "wan1.cisco.com", 
+                "wan2.cisco.com", 
+                "sw1.cisco.com"
+            ], 
+            "routers": [
+                "wan1.cisco.com", 
+                "wan2.cisco.com"
+            ], 
+            "switches": [
+                "sw1.cisco.com"
+            ], 
+            "ungrouped": [
+                "localhost"
+            ]
+        }, 
+        "inventory_dir": "/home/ansible/ios_config", 
+        "inventory_file": "./hosts", 
+        "inventory_hostname": "wan1.cisco.com", 
+        "inventory_hostname_short": "wan1", 
+        "ip_addresses": [
+            {
+                "description": "Router-ID", 
+                "interface": "Loopback0", 
+                "ip_address": "1.1.1.1", 
+                "ip_mask": "255.255.255.255"
+            }, 
+            {
+                "description": "To-ISP1", 
+                "interface": "Ethernet0/1", 
+                "ip_address": "172.31.1.2", 
+                "ip_mask": "255.255.255.252"
+            }, 
+            {
+                "description": "To-SW1", 
+                "interface": "Ethernet0/2", 
+                "ip_address": "10.1.1.2", 
+                "ip_mask": "255.255.255.0", 
+                "standby_grp": 1, 
+                "standby_ip": "10.1.1.1", 
+                "standby_pri": 200
+            }, 
+            {
+                "description": "To-WAN2", 
+                "interface": "Ethernet0/3", 
+                "ip_address": "10.1.254.253", 
+                "ip_mask": "255.255.255.252"
+            }
+        ], 
+        "omit": "__omit_place_holder__35c7135a85c48239601a985469072893782d8d54", 
+        "password": "cisco", 
+        "playbook_dir": ".", 
+        "username": "cisco"
+    }

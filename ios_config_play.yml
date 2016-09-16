@@ -1,0 +1,36 @@
+---
+- hosts: routers
+  connection: local
+  gather_facts: no
+
+  tasks:
+  - name: define provider
+    set_fact:
+      provider:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        auth_pass: "{{ auth_pass }}"
+        authorize: "{{ authorize }}"
+        backup: "{{ backup }}"
+
+  - name: push a configuration template onto the device
+    ios_template:
+      provider: "{{ provider }}"
+      src: config.j2
+
+  - name: test
+    debug: msg="{{ item.interface }}"
+    with_items:
+      - "{{ ip_addresses }}"
+
+  - name: RUN 'SHOW VERSION'
+    ios_command:
+      provider: "{{ provider }}"
+      commands:
+        - show version
+    register: version
+
+  - copy: content="{{ version.stdout }}" dest=./{{ inventory_hostname }}.show.version.raw.txt
+
+  - template: src=./templates/version.j2 dest=./{{ inventory_hostname }}.show.version.j2.txt
