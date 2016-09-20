@@ -17,7 +17,6 @@ interface {{ i.interface }}
 {% if bgp_as is defined %}
 router bgp {{ bgp_as }}
  bgp router-id {{ bgp_rid }}
- timers bgp 5 20
 {% endif %}
 
 {% for n in bgp_neighbors %}

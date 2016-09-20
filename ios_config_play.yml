@@ -19,11 +19,6 @@
       provider: "{{ provider }}"
       src: config.j2
 
-  - name: test
-    debug: msg="{{ item.interface }}"
-    with_items:
-      - "{{ ip_addresses }}"
-
   - name: RUN 'SHOW VERSION'
     ios_command:
       provider: "{{ provider }}"
@@ -34,3 +29,17 @@
   - copy: content="{{ version.stdout }}" dest=./{{ inventory_hostname }}.show.version.raw.txt
 
   - template: src=./templates/version.j2 dest=./{{ inventory_hostname }}.show.version.j2.txt
+
+  - name: test
+    debug: msg="{{ item.interface }}"
+    with_items:
+      - "{{ ip_addresses }}"
+
+  - name: no shut
+    ios_config:
+      provider: "{{ provider }}"
+      lines:
+        - no shutdown
+      parents: interface {{ item.interface }}
+    with_items:
+      - "{{ ip_addresses }}"
