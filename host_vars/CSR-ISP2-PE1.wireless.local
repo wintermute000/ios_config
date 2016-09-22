@@ -1,0 +1,31 @@
+ntp_server: 192.168.9.9
+
+ip_addresses:
+  - interface: Loopback0
+    description: Router-ID
+    ip_address: 2.2.2.2
+    ip_mask: 255.255.255.255
+
+  - interface: GigabitEthernet2.991
+    encapsulation: 991
+    description: "TO DC1"
+    ip_address: 172.31.2.1
+    ip_mask: 255.255.255.252
+
+  - interface: GigabitEthernet2.992
+    encapsulation: 992
+    description: "TO DC2"
+    ip_address: 172.31.2.9
+    ip_mask: 255.255.255.252
+
+  - interface: GigabitEthernet2.993
+    encapsulation: 993
+    description: "TO SPOKE1"
+    ip_address: 172.31.2.17
+    ip_mask: 255.255.255.252
+
+  - interface: GigabitEthernet2.994
+    encapsulation: 994
+    description: "TO SPOKE2"
+    ip_address: 172.31.2.21
+    ip_mask: 255.255.255.252

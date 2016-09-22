@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="unetlab">
+  <component name="PublishConfigData" autoUpload="Always" serverName="lablinux">
     <serverData>
-      <paths name="ansible">
+      <paths name="lablinux">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="unetlab">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/ios_config" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/python/APIC-EM-ansible" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

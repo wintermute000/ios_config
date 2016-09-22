@@ -1,0 +1,26 @@
+eigrp_name: IWAN-EIGRP
+eigrp_as: 1
+
+eigrp_networks:
+  - network: 10.100.2.0 0.0.0.3
+  - network: 10.100.254.3 0.0.0.0
+
+ntp_server: 192.168.9.9
+
+ip_addresses:
+  - interface: Loopback0
+    description: Router-ID
+    ip_address: 10.100.254.3
+    ip_mask: 255.255.255.255
+
+  - interface: GigabitEthernet2.912
+    encapsulation: 912
+    description: "TO CSR-DC1-CORE1"
+    ip_address: 10.100.2.2
+    ip_mask: 255.255.255.252
+
+  - interface: GigabitEthernet2.981
+    encapsulation: 981
+    description: "TO ISP1-MPLS"
+    ip_address: 172.31.1.2
+    ip_mask: 255.255.255.252

@@ -1,18 +1,25 @@
-[routers]
-wan1.cisco.com
-wan2.cisco.com
+[enterprise]
+CSR-DC1-CORE1.wireless.local
+CSR-DC1-WAN1.wireless.local
+CSR-DC1-WAN2.wireless.local
+CSR-DC2-WAN1.wireless.local
+CSR-SPOKE1-WAN1.wireless.local
+CSR-SPOKE1-WAN2.wireless.local
+CSR-SPOKE2-WAN1.wireless.local
 
-[switches]
-sw1.cisco.com
 
-[routers:vars]
+[isp]
+CSR-ISP1-PE1.wireless.local
+CSR-ISP2-PE1.wireless.local
+
+[enterprise:vars]
 username=cisco
 password=cisco
 auth_pass=cisco
 authorize=yes
 backup=true
 
-[switches:vars]
+[isp:vars]
 username=cisco
 password=cisco
 auth_pass=cisco

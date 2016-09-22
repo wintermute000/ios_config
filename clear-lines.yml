@@ -1,0 +1,37 @@
+---
+- hosts: all
+  connection: local
+  gather_facts: no
+
+  tasks:
+  - name: define provider
+    set_fact:
+      provider:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        auth_pass: "{{ auth_pass }}"
+        authorize: "{{ authorize }}"
+        backup: "{{ backup }}"
+
+  - name: suppress confirmations
+    ios_config:
+      provider: "{{ provider }}"
+      lines:
+        - file prompt quiet
+
+  - name: take backup config
+    ios_command:
+      provider: "{{ provider }}"
+      commands:
+        - clear line 1
+        - clear line 2
+        - clear line 3
+        - clear line 4
+        - clear line 5
+
+  - name: re-enable confirmations
+    ios_config:
+      provider: "{{ provider }}"
+      lines:
+        - file prompt alert

@@ -1,0 +1,13 @@
+{% if eigrp_name is defined %}
+router eigrp {{ eigrp_name }}
+ address-family ipv4 unicast autonomous-system  {{ eigrp_as }}
+{% for n in eigrp_networks %}
+  network {{ n.network }}
+{% endfor %}
+ exit-address-family
+
+{% endif %}
+
+
+
+
