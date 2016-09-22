@@ -10,3 +10,4 @@ Tasks included:
 - template - dump "version" into text file using jinja2 template
 - test - demonstration debug
 - no shut - demonstration of using ios_config module to issue 'no shutdown' against a loop of parent interfaces defined in host variables in host_vars
+# APIC-EM-ansible
